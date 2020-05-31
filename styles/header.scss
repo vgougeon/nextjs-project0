@@ -1,0 +1,71 @@
+$jumbotron-size: 180px;
+header {
+    width: 100%;
+    height: $header-size;
+    display: flex;
+    padding: 0 1rem;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    z-index: 11;
+    @media screen and (max-width: 1100px){
+        justify-content: space-between;
+    }
+    h1 {
+        font-size: 1.5rem;
+        span {
+            font-weight: 600;
+            color: rgb(97, 171, 245);
+        }
+    }
+    nav a {
+        color: rgba($color, 0.8);
+        &:hover {
+            color: $p;
+        }
+    }
+    .profile {
+        padding: 0.4rem 0;
+        border-radius: 8px;
+        &:hover {
+            background: rgba($color, 0.1);
+        }
+    }
+}
+.bg-header {
+    height: $header-size;
+    position: relative;
+    overflow: hidden;
+    &.jumbotron {
+        height: $header-size + $jumbotron-size;
+    }
+    .background {
+        @keyframes move {
+            0% { transform: translateY(0%)}
+            50% { transform: translateY(-50%)}
+            100% { transform: translateY(0%)}
+        }
+        transition: 1s;
+        width: 100%;
+        height: $header-size + $jumbotron-size;
+        position: fixed;
+        top: 0; bottom: 0;
+        overflow: hidden;
+        z-index: 5;
+        background: $interface;
+        display: none;
+        img {
+            height: 200%;
+            width: 100%;
+            object-fit: cover;
+            animation: 30s move ease-in-out infinite;
+            filter: blur(3px);
+        }
+    }
+    .content {
+        width: 100%;
+        position: relative;
+        z-index: 6;
+    }
+}

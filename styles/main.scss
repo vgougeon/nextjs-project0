@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    color: $color;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    margin: 0;
+    background: $background;
+    width: 100%;
+}
+section#main {
+    width: 100%;
+    overflow-x: hidden;
+}
+.container {
+    position: relative;
+    z-index: 7;
+}
+a {
+    color: $color;
+    text-decoration: none;
+}
+.spacer {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba($color, 0.3);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba($color, 0.3);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: mix($background, $color, 30%);
+}

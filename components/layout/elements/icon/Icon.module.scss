@@ -1,0 +1,12 @@
+@import '../../../../styles/variables.scss';
+.icon {
+    svg {
+        fill: $color;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.muted {
+    opacity: 0.75;
+}
