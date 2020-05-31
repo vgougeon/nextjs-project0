@@ -1,5 +1,5 @@
 import BackHeader from "../components/layout/backheader"
-
+const axios = require('axios');
 function ProfilePage(data) {
     return (
     <>
@@ -13,11 +13,15 @@ function ProfilePage(data) {
 
 export async function getServerSideProps() {
     // Fetch data from external API
-    const res = await fetch(`http://localhost:3001/me`, { method: 'POST'})
-    const data = await res.json()
+    axios.defaults.withCredentials = true;
+    let data = await axios.post('http://127.0.0.1/api/me')
+    // const data = { name: "Vince"}
+    console.log(data)
+    // const res = await fetch(`http://127.0.0.1/api/me`, { method: 'POST'})
+    // const data = await res.json()
     console.log("Bonjour.")
     // Pass data to the page via props
-    return { props: data }
+    return { props: { name: "test" }}
 }
 
 export default ProfilePage

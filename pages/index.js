@@ -4,7 +4,7 @@ function HomePage() {
     return (
     <>
     <BackHeader img={"https://images.igdb.com/igdb/image/upload/t_original/bktrfgfwqohj8xnlq7pk.jpg"} />
-    <div class="container">Hello !</div>
+    <div className="container">Hello !</div>
     <br />
     <br />
     <br />
