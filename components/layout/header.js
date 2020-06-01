@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-import Icon from './elements/icon/icon';
-import Avatar from './elements/avatar/avatar';
+import Icon from '../elements/icon/icon';
+import Avatar from '../elements/avatar/avatar';
+import Logo from '../elements/logo/logo';
 class Header extends Component {
     render() { 
         return (   
             <header>
+                <div class="header-container">
                 <div className="flex">
-                <h1>MY<span>VG</span></h1>
+                <div id="logo">
+                    <Logo />
+                </div>
+                
                 <nav className="flex items-center">
                     <Link href="/"><a className="ml-5">Home</a></Link>
                     <Link href="/"><a className="ml-5">Games</a></Link>
+                    <Link href="/create/game"><a className="ml-5">New game</a></Link>
                 </nav>
                 </div>
                 
@@ -20,10 +26,10 @@ class Header extends Component {
                         <span className="ml-2 font-semibold leading-none">Njak</span>
                         <span className="ml-2 font-light leading-none text-sm opacity-75">Mon profil</span>
                         </div>
-                        <Avatar size="35px" className="mx-2"/>
+                        <Avatar size="42px" className="mx-2"/>
                     </a></Link>
                 </div>
-                
+                </div>
             </header>
         );
     }

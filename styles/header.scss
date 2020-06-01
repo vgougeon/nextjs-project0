@@ -1,17 +1,68 @@
 $jumbotron-size: 180px;
 header {
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        background: linear-gradient(90deg, rgba($color, 0), rgba($color, 0.3), rgba($color, 0));
+    }
+    .header-container {
+        width: 100%;
+        max-width: $maxWidth;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    background: linear-gradient(90deg, rgba($interface, 0), rgba($interface, 0.1), rgba($interface, 0));
     width: 100%;
     height: $header-size;
     display: flex;
-    padding: 0 1rem;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     position: fixed;
     top: 0;
     z-index: 11;
-    @media screen and (max-width: 1100px){
+    @media screen and (max-width: $maxWidth){
         justify-content: space-between;
     }
+    #logo {
+        width: $header-size;
+        height: $header-size;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 1px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(rgba($color, 0.2), rgba($color, 0));
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 1px;
+            top: 0;
+            right: 0;
+            background: linear-gradient(rgba($color, 0.2), rgba($color, 0));
+        }
+        svg {
+            width: 50%;
+            overflow: visible;
+            stroke: #fff;
+            stroke-width: -2;
+            stroke-linejoin: square;
+            stroke-linecap: square;
+        }
+    }
+    
     h1 {
         font-size: 1.5rem;
         span {
@@ -20,7 +71,7 @@ header {
         }
     }
     nav a {
-        color: rgba($color, 0.8);
+        color: $color;
         &:hover {
             color: $p;
         }
@@ -33,39 +84,52 @@ header {
         }
     }
 }
-.bg-header {
+.header-body-image {
+    width: 100%;
     height: $header-size;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    overflow: hidden; 
+}
+.body-image-color {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    background: rgba(#113377, 1);
+}
+.body-image {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 0;
+    background: rgba($s, 0.1);
+    .body-image-gradient {
+        width: 100%;
+        height: 100%;
+        // background: linear-gradient(rgba($s,0.7), $background);
+        background: linear-gradient(transparent,  $background);
+        z-index: 3;
+        position: absolute;
+        top: 0;
+    }
+}
+img.body-image-src {
+    // filter: blur(5px);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    object-position: top;
+    opacity: 0.35;
+}
+.header-relative {
     position: relative;
-    overflow: hidden;
-    &.jumbotron {
-        height: $header-size + $jumbotron-size;
-    }
-    .background {
-        @keyframes move {
-            0% { transform: translateY(0%)}
-            50% { transform: translateY(-50%)}
-            100% { transform: translateY(0%)}
-        }
-        transition: 1s;
-        width: 100%;
-        height: $header-size + $jumbotron-size;
-        position: fixed;
-        top: 0; bottom: 0;
-        overflow: hidden;
-        z-index: 5;
-        background: $interface;
-        display: none;
-        img {
-            height: 200%;
-            width: 100%;
-            object-fit: cover;
-            animation: 30s move ease-in-out infinite;
-            filter: blur(3px);
-        }
-    }
-    .content {
-        width: 100%;
-        position: relative;
-        z-index: 6;
-    }
+    height: $header-size;
+    width: 100%;
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BackHeader from "../components/layout/backheader"
 
 class LoginPage extends Component {
     state = {
@@ -23,7 +22,6 @@ class LoginPage extends Component {
     render() { 
         return (
             <>
-            <BackHeader img={"https://images.igdb.com/igdb/image/upload/t_original/bktrfgfwqohj8xnlq7pk.jpg"} />
             <div className="container">
                 <form method="POST" onSubmit={this.login}>
                     <input type="text" name="username" 

@@ -9,14 +9,49 @@ body {
     margin: 0;
     background: $background;
     width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
 }
 section#main {
     width: 100%;
     overflow-x: hidden;
 }
+article {
+    border: 1px solid rgba($color, 0.15);
+    background: linear-gradient(0deg, rgba(mix($interface, $s, 80%), 0.1), rgba($color, 0.05));
+    box-shadow: 0 2px 2px rgba(0, 0, 0, $shadow);
+    margin-bottom: 14px;
+}
+.soft-line {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(90deg, rgba($color, 0.3), rgba($color, 0));
+    }
+}
 .container {
     position: relative;
-    z-index: 7;
+    margin-top: $header-size;
+    width: 100%;
+    &.max {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: $maxWidth;
+    }
 }
 a {
     color: $color;
@@ -25,7 +60,56 @@ a {
 .spacer {
     width: 0.5rem;
 }
-
+.input-icon {
+    width: 100%;
+    position: relative;
+    button {
+        position: absolute;
+        height: 70%;
+        right: 7px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+    }
+}
+label {
+    font-size: 1rem;
+    margin: 0.5rem 0.7rem;
+    font-weight: 600;
+    display: block;
+}
+button {
+    height: 35px;
+    background: $p;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        background: mix($p, $color, 75%);
+    }
+    &.soft {
+        background: rgba($color, 0.1);
+        &:hover {
+            background: rgba($color, 0.2);
+        }
+    }
+}
+input {
+    background: rgba($background, 0.3);
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 40px;
+    color: $color;
+    padding: 0 0.7rem;
+}
+.clickable {
+    cursor: pointer;
+    &:hover {
+        background: rgba($color, 0.1);
+    }
+}
 ::-webkit-scrollbar {
     width: 4px;
 }
@@ -44,3 +128,47 @@ a {
 ::-webkit-scrollbar-thumb:hover {
     background: mix($background, $color, 30%);
 }
+
+img.dynamic {
+    transition: 0.4s;
+  }
+  img.loadImg {
+    opacity: 0 !important;
+    transform: translateY(-20%);
+  }
+  .img-ratio {
+    width: 40px;
+    flex-shrink: 0;
+    height: fit-content;
+    position: relative;
+    .ratio-box {
+      width: 100%;
+      padding-top: 100%;
+      img.ratio {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        border: 3px solid var(--soft);
+      }
+      .loader {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        margin: auto auto;
+      }
+    }
+    
+  }
+  
+  img.expanded {
+    position: fixed;
+    max-height: 80vh;
+    max-width: 80vw;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto auto;
+  }
