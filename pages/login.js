@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import network from '../services/network.service';
 
 class LoginPage extends Component {
     state = {
@@ -8,16 +9,17 @@ class LoginPage extends Component {
     login = async (e) => {
         e.preventDefault()
   
-        const res = await fetch('http://127.0.0.1/api/login', {
-            credentials: 'include',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({username: this.state.username, checkPassword: this.state.password}),
-        })
-        const result = await res.json()
-        console.log(result)
+        // const res = await fetch('http://127.0.0.1/api/login', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({username: this.state.username, checkPassword: this.state.password}),
+        // })
+        // const result = await res.json()
+        const body = {username: this.state.username, checkPassword: this.state.password}
+        const res = await network.post('login', body)
+        console.log(res.data)
     }
     render() { 
         return (

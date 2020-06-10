@@ -12,7 +12,7 @@ const GameItemPreview = (props) => {
             <GameCover width="50px" ratio="50%" src={ cover } />
                 <div className="flex flex-col ml-2">
                     <span className="font-semibold">{ props.name }</span>
-                    <span className="opacity-75">{ moment(props.first_release_date).format('MMMM YYYY') }</span>
+                    <span className="opacity-75">{ moment(new Date(props.first_release_date * 1000)).format('MMMM YYYY') }</span>
                 </div>
             </div>
         </div>

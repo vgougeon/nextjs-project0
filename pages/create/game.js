@@ -89,12 +89,12 @@ class CreateGame extends Component {
                         <h2 className="p-3 m-0 soft-line">Détails avancés</h2>
                         <div className="flex flex-wrap">
                             <div className="w-full lg:w-2/4 px-3">
-                                <label for="name">Nom</label>
+                                <label htmlFor="name">Nom</label>
                                 <input type="text" name="name" 
                                 value={ this.state.game.name }/>
                             </div>
                             <div className="w-full lg:w-2/4 px-3">
-                            <label for="name">Cover</label>
+                            <label htmlFor="name">Cover</label>
                                 <input type="text" name="cover" 
                                 value={(this.state.game.cover ? "https://images.igdb.com/igdb/image/upload/t_cover_big/" + this.state.game.cover.image_id + ".jpg" : "") }/>
                             </div>

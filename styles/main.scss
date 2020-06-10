@@ -104,11 +104,28 @@ input {
     color: $color;
     padding: 0 0.7rem;
 }
+.check-item {
+    background: rgba(#000, 0.25);
+    width: 16px;
+    height: 16px;
+    transition: 0.1s;
+    &:hover {
+        background: rgba(#fff, 0.1); 
+    }
+}
 .clickable {
     cursor: pointer;
     &:hover {
         background: rgba($color, 0.1);
     }
+}
+.scrollable-300 {
+    max-height: 300px;
+    overflow-y: auto;
+}
+.scrollable-600 {
+    max-height: 600px;
+    overflow-y: auto;
 }
 ::-webkit-scrollbar {
     width: 4px;

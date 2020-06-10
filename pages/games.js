@@ -5,6 +5,9 @@ import GameCard from "../components/elements/game/gameCard";
 import { motion } from "framer-motion";
 import Section from "../components/layout/section";
 import network from "../services/network.service";
+import MultiSelect from "../components/elements/form/multiselect";
+import ConsoleItem from "../components/elements/console/item";
+import Item from "../components/elements/items/item";
 const moment = require('moment')
 function HomePage(props) {
     return (
@@ -12,19 +15,14 @@ function HomePage(props) {
     <div className="container max flex flex-wrap -mx-2 mt-4">
         <div className="w-full lg:w-1/4 px-2">
             <article>
-                <h2 className="p-3 m-0 soft-line">Noveaux membres</h2>
-                { props.users.map(user =>
-                    <div className="flex p-2 items-center" key={user.id}>
-                        <div className="flex flex-col w-full">
-                            <div className="flex justify-between">
-                                <span className="font-semibold">{ user.name }</span>
-                                <span className="text-sm opacity-75">{ moment(user.createdAt).from() }</span>
-                            </div>
-                            <span className="text-sm opacity-75">@{ user.pseudo }</span>
-                        </div>
-                    </div>
-                    
-                )}
+                <label htmlFor="gameName">Nom du jeu</label>
+                <input type="text" id="gameName" name="name"></input>
+            </article>
+            <article>
+                <MultiSelect name="Consoles" data={props.consoles} layout={Item} />
+            </article>
+            <article>
+                <MultiSelect name="Genres" data={props.genres} layout={Item} />
             </article>
         </div>
         <div className="w-full lg:w-3/4 px-2">
@@ -45,7 +43,8 @@ export async function getServerSideProps(ctx) {
     return { 
         props: {
             games : await network.get('games', ctx),
-            users: await network.get('users', ctx),
+            consoles : await network.get('consoles', ctx),
+            genres : await network.get('genres', ctx),
         }
     }
 }

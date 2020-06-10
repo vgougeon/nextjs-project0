@@ -1,0 +1,30 @@
+@import '../../../styles/variables.scss';
+.select {
+    width: 100%;
+    background: rgba($background, 0.3);
+    position: relative;
+    user-select: none;
+    .main {
+        width: 100%;
+        height: 40px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0.7rem;
+        cursor: pointer;
+    }
+    .item {
+        cursor: pointer;
+        transition: 0.1s;
+        &:hover {
+            background: rgba($color, 0.1);
+        }
+        &.selected {
+            background: rgba($p, 0.3);
+            &:hover {
+                background: rgba($p, 0.4);
+            }
+        }
+    }
+}

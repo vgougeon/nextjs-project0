@@ -10,16 +10,16 @@ class BodyImage extends Component {
     render() { 
         return (
             <>
-            <div class="header-body-image">
+            <div className="header-body-image">
                 <img className="body-image-src" src={ this.props.img }/>
                 <div className="body-image-color"/>
             </div>
-            <div class="body-image" ref={ this.bodyImage}>
+            <div className="body-image" ref={ this.bodyImage}>
                 <img className="body-image-src" src={ this.props.img } />
                 <div className="body-image-gradient" />
                 <div className="body-image-color"/>
             </div>
-            <div class="header-relative"></div>
+            <div className="header-relative"></div>
             </>
         );
     }
