@@ -1,4 +1,4 @@
-import Img from "../img/Img";
+import Img from "../img/img";
 
 const GameCover = (props) => {
     if(props.ratio)
